@@ -26,11 +26,15 @@ public class Registration : MonoBehaviour
             _url = request.CleanUrl(_url);
 
             StartCoroutine(request.getRequest(_url));
-
-            if (request.uwr.downloadHandler.Equals("true") || request.uwr.downloadHandler.Equals("false"))
-                _confirmCodePool.SetActive(true);
-
         }
     }
 
+    private void Update()
+    {
+        if (request.uwr.downloadHandler.text.Equals("true") || request.uwr.downloadHandler.text.Equals("false"))
+            _confirmCodePool.SetActive(true);
+        else
+            _confirmCodePool.SetActive(true);
+
+    }
 }

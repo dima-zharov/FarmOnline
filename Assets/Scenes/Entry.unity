@@ -800,12 +800,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 720, y: 1520}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.818
+  m_MatchWidthOrHeight: 0.75
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1228,6 +1228,7 @@ GameObject:
   - component: {fileID: 984425097}
   - component: {fileID: 984425099}
   - component: {fileID: 984425098}
+  - component: {fileID: 984425100}
   m_Layer: 5
   m_Name: Auth (TMP)
   m_TagString: Untagged
@@ -1354,6 +1355,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 984425096}
   m_CullTransparentMesh: 1
+--- !u!114 &984425100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984425096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44fd4ccc9b47c824aaa5e4d6c0e4f26d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputEmail: {fileID: 2132658579}
+  _inputPassword: {fileID: 2142786914}
 --- !u!1 &1123751650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1382,7 +1397,7 @@ RectTransform:
   m_GameObject: {fileID: 1123751650}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.00008, y: 1.00008, z: 1.00008}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1289305607}
@@ -1436,7 +1451,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1123751653}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 984425100}
+        m_TargetAssemblyTypeName: Auth, Assembly-CSharp
+        m_MethodName: EnterField
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1123751653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1828,7 +1855,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Registrate
+  m_text: Log In
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2382,7 +2409,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 245.37372, w: 0}
+  m_margin: {x: 0, y: 0, z: 1.4634094, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2554,8 +2581,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4280558662
+  m_fontColor: {r: 0.2754717, g: 0.14293341, b: 0.14293341, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
