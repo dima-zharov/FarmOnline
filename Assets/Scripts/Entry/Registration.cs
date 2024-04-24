@@ -1,30 +1,36 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Registration : MonoBehaviour
 {
-    [SerializeField] private InputField _inputEmail; 
-    [SerializeField] private InputField _inputPassword; 
+    [SerializeField] private TMP_InputField   _inputEmail; 
+    [SerializeField] private TMP_InputField _inputPassword; 
     [SerializeField] private GameObject _confirmCodePool;
 
     private Requests request = new Requests();
 
     private string _userEmail;
     private string _userPassword;
+    private string _url;
 
-
-    private void Update()
+    public void EnterField()
     {
         if(_inputPassword.textComponent.text != null && _inputEmail.textComponent.text != null)
         {
             _userPassword = _inputPassword.textComponent.text;
             _userEmail = _inputEmail.textComponent.text;
 
-            StartCoroutine(request.postRequest($"http://127.0.0.1:4040/game/api/login?={_userEmail}.com&password?={_userPassword}&secret=secret_api_key"));
+            _url = $"https://zetprime.pythonanywhere.com/game/api/registration?email={_userEmail}&password={_userPassword}";
 
-            _confirmCodePool.SetActive(true);          
+            _url = request.CleanUrl(_url);
+
+            StartCoroutine(request.getRequest(_url));
+
+            if (request.uwr.downloadHandler.Equals("true") || request.uwr.downloadHandler.Equals("false"))
+                _confirmCodePool.SetActive(true);
+
         }
     }
 
-   
 }

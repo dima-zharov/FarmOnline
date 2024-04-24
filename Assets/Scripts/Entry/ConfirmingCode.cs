@@ -1,5 +1,5 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ConfirmingCode : MonoBehaviour
 {
@@ -7,12 +7,11 @@ public class ConfirmingCode : MonoBehaviour
 
     private string code;
 
-    [SerializeField] private InputField _inputCode;
+    [SerializeField] private TMP_InputField _inputCode;
 
     public void ConfirmingCodeMethod()
     {
-        StartCoroutine(request.postRequest("string"));
+        StartCoroutine(request.getRequest(""));
     }
-
 
 }
