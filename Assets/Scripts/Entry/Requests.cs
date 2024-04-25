@@ -11,6 +11,7 @@ public class Requests : MonoBehaviour
 
     public IEnumerator getRequest(string uri)
     {
+
         uwr = UnityWebRequest.Get(uri);
         yield return uwr.SendWebRequest();
 
@@ -32,5 +33,23 @@ public class Requests : MonoBehaviour
         string encodedUrl = Uri.EscapeUriString(cleanUrl);
 
         return encodedUrl;
+    }
+
+    public void MakeRequestRegistrtion(out string url, ref string email, ref string password)
+    {
+        url = $"https://zetprime.pythonanywhere.com/game/api/registration?email={email}&password={password}";
+        MakeRequest(url);
+    }
+
+    public void MakeRequestAuth(out string url, ref string email, ref string password)
+    {
+
+        url = $"https://zetprime.pythonanywhere.com/game/api/login?email={email}&password={password}";
+        MakeRequest(url);
+    }
+
+    private void MakeRequest(string url)
+    {
+        url = CleanUrl(url);
     }
 }

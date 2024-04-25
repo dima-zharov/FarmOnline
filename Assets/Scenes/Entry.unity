@@ -1593,6 +1593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputCode: {fileID: 2010517370}
+  _inputEmail: {fileID: 949879318}
 --- !u!1 &1175498668
 GameObject:
   m_ObjectHideFlags: 0
@@ -3189,7 +3190,7 @@ GameObject:
   - component: {fileID: 2010517371}
   - component: {fileID: 2010517370}
   m_Layer: 5
-  m_Name: InputField (Email)
+  m_Name: InputField (Code)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
