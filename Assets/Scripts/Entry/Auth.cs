@@ -1,7 +1,10 @@
+using System.Threading;
 using UnityEngine;
 
 public class Auth : EntryPattern
 {
+    private UserIdData _userIdData = new UserIdData();
+    private ChangeScene _sceneManager = new ChangeScene();
     protected override void EntryMethod()
     {
 
@@ -16,7 +19,10 @@ public class Auth : EntryPattern
         else
         {
             Debug.Log("Sucessful! Your id " + _request.uwr.downloadHandler.text);
-            UserIdData.UserId = _request.uwr.downloadHandler.text;
+            string result = _request.uwr.downloadHandler.text;
+            Thread.Sleep(5000);
+            _userIdData.SaveUserId(ref result);
+            _sceneManager.ChangeSceneMethod(1);
         }
 
     }

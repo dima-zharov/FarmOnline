@@ -828,7 +828,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -1594,6 +1594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputCode: {fileID: 2010517370}
   _inputEmail: {fileID: 949879318}
+  _confirmingPanel: {fileID: 1136502435}
 --- !u!1 &1175498668
 GameObject:
   m_ObjectHideFlags: 0

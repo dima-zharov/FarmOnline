@@ -829,7 +829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc09703376bee26468a72685a4b9bbcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
+  _player: {fileID: 5302301151891205572, guid: edbbe03ca09897e408f39914902146ea, type: 3}
   _upBarrier: 9
   _downBarrier: -9
   _rightBarrier: 15

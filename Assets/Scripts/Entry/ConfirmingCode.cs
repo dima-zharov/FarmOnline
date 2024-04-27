@@ -1,3 +1,4 @@
+using System.Threading;
 using TMPro;
 using UnityEngine;
 
@@ -7,10 +8,12 @@ public class ConfirmingCode : MonoBehaviour
 
     private Registration _registration;
 
-    private string _code;
+    private string _code = "000000";
     private string _url;
     private string _userId;
 
+    private ChangeScene _sceneManager = new ChangeScene();
+    private UserIdData _userIdData = new UserIdData();
 
     [SerializeField] private TMP_InputField _inputCode;
     [SerializeField] private TMP_InputField _inputEmail;
@@ -23,23 +26,16 @@ public class ConfirmingCode : MonoBehaviour
 
     public void ConfirmingCodeMethod()
     {
-
-        _url = $"https://zetprime.pythonanywhere.com/game/api/validate?email={_inputEmail.text}&code={_inputCode.text}";
-
-        _url = _request.CleanUrl(_url);
-
+        _request.MakeRequestConfirmingCode(out _url, _inputEmail.text, _inputCode.text);
         StartCoroutine(_request.getRequest(_url));
 
-        Debug.Log(_url);
-
-        _code = _request.uwr.downloadHandler.text;
+        Thread.Sleep(5000);
 
         if (_inputCode.text == _code)
         {
+            _userIdData.SaveUserId(ref _userId);
+            _sceneManager.ChangeSceneMethod(1);
             _userId = _request.uwr.downloadHandler.text;
-            _userId = UserIdData.UserId;
-
-            gameObject.SetActive(false);
         }
     }
 }

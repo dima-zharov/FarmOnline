@@ -46,6 +46,12 @@ public class Requests : MonoBehaviour
 
         url = $"https://zetprime.pythonanywhere.com/game/api/login?email={email}&password={password}";
         MakeRequest(url);
+    }    
+    
+    public void MakeRequestConfirmingCode(out string url, string inputEmail, string code)
+    {
+        url = $"https://zetprime.pythonanywhere.com/game/api/validate?email={inputEmail}&code={code}";
+        MakeRequest(url);
     }
 
     private void MakeRequest(string url)

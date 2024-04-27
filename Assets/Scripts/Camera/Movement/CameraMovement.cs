@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    //Поля крайних точек для движения камеры и объект игрок
+
     [SerializeField] private GameObject _player;
     [SerializeField] private float _upBarrier;
     [SerializeField] private float _downBarrier;
@@ -11,14 +11,20 @@ public class CameraMovement : MonoBehaviour
 
     private Vector3 _targetPosition;
 
-    //Вызов метода Move
+
+    private void Start()
+    {
+        Debug.Log(PlayerPrefs.GetString("playerId"));
+    }
+
+
     private void FixedUpdate()
     {
         Move();
     }
 
     
-    //Передвижение камеры за игроком, останавливается на заданных координатах
+
     private void Move()
     {
         float playerX = _player.transform.position.x;
