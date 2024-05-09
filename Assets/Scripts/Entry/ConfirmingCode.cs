@@ -6,8 +6,6 @@ public class ConfirmingCode : MonoBehaviour
 {
     private Requests _request;
 
-    private Registration _registration;
-
     private string _code = "000000";
     private string _url;
     private string _userId;
@@ -21,13 +19,11 @@ public class ConfirmingCode : MonoBehaviour
     private void Awake()
     {
         _request = new Requests();
-        _registration = new Registration();
     }
 
     public void ConfirmingCodeMethod()
     {
-        _request.MakeRequestConfirmingCode(out _url, _inputEmail.text, _inputCode.text);
-        StartCoroutine(_request.getRequest(_url));
+        StartCoroutine(_request.getRequest($"https://zetprime.pythonanywhere.com/game/api/validate?email={_inputEmail.text}&code={_code}"));
 
         Thread.Sleep(5000);
 

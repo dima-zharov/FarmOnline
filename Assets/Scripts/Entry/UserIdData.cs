@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class UserIdData
 {
     public static string UserId;

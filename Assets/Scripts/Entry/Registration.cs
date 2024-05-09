@@ -19,9 +19,7 @@ public class Registration : EntryPattern
     {
         _userPassword = _inputPassword.textComponent.text;
         UserEmail = _inputEmail.textComponent.text;
-
-        _request.MakeRequestRegistrtion(out _url, ref UserEmail, ref _userPassword);
-        StartCoroutine(_request.getRequest(_url));
+        StartCoroutine(_request.getRequest($"https://zetprime.pythonanywhere.com/game/api/registration?email={UserEmail}&password={_userPassword}"));
 
     }
 

@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-
     [SerializeField] private GameObject _player;
     [SerializeField] private float _upBarrier;
     [SerializeField] private float _downBarrier;
@@ -12,19 +11,12 @@ public class CameraMovement : MonoBehaviour
     private Vector3 _targetPosition;
 
 
-    private void Start()
-    {
-        Debug.Log(PlayerPrefs.GetString("playerId"));
-    }
-
-
     private void FixedUpdate()
     {
         Move();
     }
 
     
-
     private void Move()
     {
         float playerX = _player.transform.position.x;
@@ -35,6 +27,5 @@ public class CameraMovement : MonoBehaviour
 
         _targetPosition = new Vector3(playerX, playerY, _player.transform.position.z - 10);
         transform.position = _targetPosition;
-
     }
 }

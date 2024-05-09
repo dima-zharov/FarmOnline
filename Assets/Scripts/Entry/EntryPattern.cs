@@ -11,7 +11,6 @@ public abstract class EntryPattern : MonoBehaviour
 
     protected string UserEmail;
     protected string _userPassword;
-    protected string _url;
 
     protected void Awake()
     {

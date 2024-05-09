@@ -11,8 +11,7 @@ public class Auth : EntryPattern
         _userPassword = _inputPassword.textComponent.text;
         UserEmail = _inputEmail.textComponent.text;
 
-        _request.MakeRequestAuth(out _url, ref UserEmail, ref _userPassword);
-        StartCoroutine(_request.getRequest(_url));
+        StartCoroutine(_request.getRequest($"https://zetprime.pythonanywhere.com/game/api/login?email={UserEmail}&password={_userPassword}"));
 
         if (_request.uwr.downloadHandler.Equals("false"))
             Debug.Log("Error in emeil or password, try again");
