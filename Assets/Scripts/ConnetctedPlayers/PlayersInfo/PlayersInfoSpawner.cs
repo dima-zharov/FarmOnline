@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayersInfoSpawner : PlayersInfoLogic
 {
+
     public void SpawnPlayerInfo()
     {
         StartCoroutine(SpawnPlayerInfoCoroutine());
@@ -10,7 +11,7 @@ public class PlayersInfoSpawner : PlayersInfoLogic
 
     private IEnumerator SpawnPlayerInfoCoroutine()
     {
-        yield return StartCoroutine(_requests.getRequest("https://zetprime.pythonanywhere.com/game/api/players"));
+        yield return StartCoroutine(_requests.GetRequest("https://zetprime.pythonanywhere.com/game/api/players"));
 
         _requestPlayersCount = GetRequestData("length").length;
         UpdateListOfPlayers();

@@ -1,25 +1,43 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 
 
 public class Requests : MonoBehaviour
 {
-    public UnityWebRequest uwr { get; private set; }
+    [SerializeField] private int _secondsToShow = 5; 
+    [SerializeField] private GameObject _errorMessage; 
+    public UnityWebRequest Uwr { get; private set; }
 
-    public IEnumerator getRequest(string uri)
+    public void SpawnErrorMessage()
+    {
+        if (_errorMessage != null)
+            StartCoroutine(SpawnErrorMessageCoroutine());
+        else
+            Debug.Log("Нет объекта");
+    }
+    public IEnumerator GetRequest(string uri)
     {
 
-        uwr = UnityWebRequest.Get(uri);
-        yield return uwr.SendWebRequest();
+        Uwr = UnityWebRequest.Get(uri);
+        yield return Uwr.SendWebRequest();
 
-        if (uwr.result == UnityWebRequest.Result.ConnectionError)
+        if (Uwr.result == UnityWebRequest.Result.ConnectionError)
         {
-            Debug.Log("Error While Sending: " + uwr.error);
+            Debug.Log("Error While Sending: " + Uwr.error);
         }
         else
         {
-            Debug.Log("Received: " + uwr.downloadHandler.text);
+            Debug.Log("Received: " + Uwr.downloadHandler.text);
         }
+    }
+
+    private IEnumerator SpawnErrorMessageCoroutine()
+    {
+        Instantiate(_errorMessage);
+        _errorMessage.GetComponent<TextMeshProUGUI>().text = $"Error:{Uwr.downloadHandler.text}";
+        yield return new WaitForSeconds(_secondsToShow);
+        Destroy(_errorMessage.gameObject);
     }
 }

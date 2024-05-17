@@ -7,17 +7,13 @@ public abstract class EntryPattern : MonoBehaviour
     [SerializeField] protected TMP_InputField _inputPassword;
 
 
-    protected Requests _request;
+    protected Requests _request = new Requests();
 
-    protected string UserEmail;
+    protected string _userEmail;
     protected string _userPassword;
 
-    protected void Awake()
-    {
-        _request = new Requests();
-    }
 
-    protected void EnterField()
+    public void EnterField()
     {
         if (_inputPassword.textComponent.text != null && _inputEmail.textComponent.text != null)
             EntryMethod();

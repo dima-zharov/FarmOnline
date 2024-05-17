@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Threading;
 using TMPro;
 using UnityEngine;
@@ -23,15 +24,19 @@ public class ConfirmingCode : MonoBehaviour
 
     public void ConfirmingCodeMethod()
     {
-        StartCoroutine(_request.getRequest($"https://zetprime.pythonanywhere.com/game/api/validate?email={_inputEmail.text}&code={_code}"));
+        StartCoroutine(ConfirmingCodeCorroutine());
+    }
 
-        Thread.Sleep(5000);
+    private IEnumerator ConfirmingCodeCorroutine()
+    {
+        yield return StartCoroutine(_request.GetRequest($"https://zetprime.pythonanywhere.com/game/api/validate?email={_inputEmail.text}&code={_code}"));
+
 
         if (_inputCode.text == _code)
         {
+            _userId = _request.Uwr.downloadHandler.text;
             _userIdData.SaveUserId(ref _userId);
             _sceneManager.ChangeSceneMethod(1);
-            _userId = _request.uwr.downloadHandler.text;
         }
     }
 }

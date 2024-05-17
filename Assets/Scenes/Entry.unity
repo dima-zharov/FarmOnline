@@ -1369,6 +1369,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputEmail: {fileID: 2132658579}
   _inputPassword: {fileID: 2142786914}
+--- !u!1 &1071894963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1071894964}
+  - component: {fileID: 1071894965}
+  m_Layer: 0
+  m_Name: Requests
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1071894964
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071894963}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1071894965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071894963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f14ab81f676da54fbf645453adcd6b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _secondsToShow: 5
+  _errorMessage: {fileID: 5302301151891205572, guid: edbbe03ca09897e408f39914902146ea, type: 3}
 --- !u!1 &1123751650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,7 +1499,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 984425100}
-        m_TargetAssemblyTypeName: Auth, Assembly-CSharp
+        m_TargetAssemblyTypeName: EntryPattern, Assembly-CSharp
         m_MethodName: EnterField
         m_Mode: 1
         m_Arguments:
@@ -1594,7 +1640,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputCode: {fileID: 2010517370}
   _inputEmail: {fileID: 949879318}
-  _confirmingPanel: {fileID: 1136502435}
 --- !u!1 &1175498668
 GameObject:
   m_ObjectHideFlags: 0
@@ -4052,3 +4097,4 @@ SceneRoots:
   - {fileID: 1635590830}
   - {fileID: 536135490}
   - {fileID: 1510241783}
+  - {fileID: 1071894964}

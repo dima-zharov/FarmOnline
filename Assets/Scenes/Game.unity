@@ -2421,9 +2421,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edfcd717c8d064045b6ff95fe73ff753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: 0
   _playerInfoPrefab: {fileID: 8978166100942303776, guid: f14951a02bc22644e80bb6da739f170c, type: 3}
   _playerPrefabsTag: playerInfoPrefab
   _spawnPlaceObject: {fileID: 465787475}
+  _uniqueGameObjects: []
+  _isConectedImage: {fileID: 1581423827, guid: bc7bcf3351749404c9cf377e5e9ce0ab, type: 3}
 --- !u!114 &1698137766
 MonoBehaviour:
   m_ObjectHideFlags: 0

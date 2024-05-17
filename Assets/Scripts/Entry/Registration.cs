@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Registration : EntryPattern
@@ -7,20 +8,28 @@ public class Registration : EntryPattern
     {
         try
         {
-            if (_request.uwr.downloadHandler.text.Equals("true") || _request.uwr.downloadHandler.text.Equals("false"))
+            if (_request.Uwr.downloadHandler.text.Equals("true") || _request.Uwr.downloadHandler.text.Equals("false"))
                 _confirmCodePool.SetActive(true);
             else
+            {
+                _request.SpawnErrorMessage();
                 _confirmCodePool.SetActive(false);
+            }
 
         }
         catch { }
     }
     protected override void EntryMethod()
     {
-        _userPassword = _inputPassword.textComponent.text;
-        UserEmail = _inputEmail.textComponent.text;
-        StartCoroutine(_request.getRequest($"https://zetprime.pythonanywhere.com/game/api/registration?email={UserEmail}&password={_userPassword}"));
+        StartCoroutine(EntryMethodCoroutine());
 
+    }
+
+    private IEnumerator EntryMethodCoroutine()
+    {
+        _userPassword = _inputPassword.textComponent.text;
+        _userEmail = _inputEmail.textComponent.text;
+        yield return StartCoroutine(_request.GetRequest($"https://zetprime.pythonanywhere.com/game/api/registration?email={_userEmail}&password={_userPassword}"));
     }
 
 }
