@@ -18,15 +18,17 @@ public abstract class PlayerMovement : MonoBehaviour
         MovePlayer();
     }
 
+    public abstract void MoveMethod();
+
     protected abstract void MovePlayer();
 
     
 
-    protected void CheckViewDirection(Vector2 moveDirection)
+    protected void CheckViewDirection(Vector2? moveDirection)
     {
-        if (moveDirection.x < 0)
+        if (moveDirection?.x < 0)
             RotateY(180);
-        else if (moveDirection.x > 0)
+        else if (moveDirection?.x > 0)
             RotateY(0);
     }
 

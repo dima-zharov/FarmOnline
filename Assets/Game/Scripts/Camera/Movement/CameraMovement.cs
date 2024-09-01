@@ -10,7 +10,7 @@ public class CameraMovement : BarrierData
 
     private void Start()
     {
-       _player = FindFirstObjectByType<PlayerMovement>().gameObject;
+       _player = Singleton.Instance.gameObject;
     }
 
     private void LateUpdate()
@@ -30,4 +30,5 @@ public class CameraMovement : BarrierData
         _targetPosition = new Vector3(playerX, playerY + 0.8f, _player.transform.position.z - 10);
         transform.position = _targetPosition;
     }
+
 }

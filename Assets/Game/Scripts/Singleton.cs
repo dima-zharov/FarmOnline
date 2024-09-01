@@ -7,7 +7,10 @@ public class Singleton : MonoBehaviour
     private void Awake()
     {
         if (!Instance)
+        {
             Instance = this;
+            DontDestroyOnLoad(this);
+        }
         else
             Destroy(gameObject);
     }

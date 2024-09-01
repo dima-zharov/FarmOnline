@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class PlayersInfoLogic : PlayersInfoPrefabData
 {
     [SerializeField] protected string _playerPrefabsTag;
-    [SerializeField] protected int _maxPlayersInRoom;
     [SerializeField] protected GameObject _spawnPlaceObject, _playerInfoPrefab;
     [SerializeField] private Sprite _isConectedImage;
     [SerializeField] private PlayerDataMonoBehaviour _playerDataMonoBehaviour;
@@ -18,23 +17,9 @@ public class PlayersInfoLogic : PlayersInfoPrefabData
     protected List<GameObject> _allGameObjects;
     protected Requests _requests = new Requests();
 
-    private void Start()
-    {
-        PhotonNetwork.ConnectUsingSettings();
-    }
 
-    public override void OnConnectedToMaster()
-    {
-        PhotonNetwork.JoinOrCreateRoom("MainRoom", new RoomOptions { MaxPlayers = _maxPlayersInRoom }, null);
-    }
 
-    public override void OnJoinedRoom()
-    {
-        string playerNickname = _playerDataMonoBehaviour.Name;
 
-        PhotonNetwork.LocalPlayer.NickName = playerNickname;
-
-    }
 
     protected void UpdateListOfPlayers()
     {

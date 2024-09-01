@@ -8,13 +8,13 @@ using UnityEngine;
 public class JsonSaveLoad 
 {
 
-    private const string SaveFolderName = "Plants Survivours Online\\Saves";
+    private const string SAVE_FOLDER_NAME = "Saves";
 
-    private const string SaveFileName = "GameSaveFile.json";
+    private const string SAVE_FILE_NAME = "GameSaveFile.json";
 
-    private static string SaveDataFolder => Path.Combine(Application.persistentDataPath, SaveFolderName);
+    private static string SaveDataFolder => Path.Combine(Application.persistentDataPath, SAVE_FOLDER_NAME);
 
-    private static string SaveFilePath => Path.Combine(SaveDataFolder, SaveFileName);
+    private static string SaveFilePath => Path.Combine(SaveDataFolder, SAVE_FILE_NAME);
 
     public void Save(Dictionary<string, string> objectToSave)
     {
