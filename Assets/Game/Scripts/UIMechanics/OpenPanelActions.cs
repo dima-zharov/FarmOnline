@@ -1,5 +1,5 @@
 using UnityEngine;
-public class InventoryActions : MonoBehaviour
+public class OpenPanelActions : MonoBehaviour
 {
     [SerializeField] private GameObject _objectNeedToShow;
     private bool _isActive = true;
