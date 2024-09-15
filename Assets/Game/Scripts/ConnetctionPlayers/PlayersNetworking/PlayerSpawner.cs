@@ -1,13 +1,12 @@
 using Photon.Pun;
 using UnityEngine;
 
-public class PlayersSpawner : MonoBehaviourPunCallbacks
+public class PlayersSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _player;
-    private const int UP_POSITION = 6;
-    public override void OnJoinedRoom()
+    public void SpawnPlayer()
     {
-        Vector2 spawnPosition = new Vector2(0, UP_POSITION);
+        Vector2 spawnPosition = new Vector2(0, 0);
         PhotonNetwork.InstantiateRoomObject(_player.name, spawnPosition, Quaternion.identity);
     }
 }

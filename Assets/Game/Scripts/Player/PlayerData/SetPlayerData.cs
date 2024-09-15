@@ -2,15 +2,20 @@ using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerDataMonoBehaviour))]
-public class SetPlayerData : MonoBehaviour
+public class SetPlayerData : MonoBehaviour, IInitializer
 {
-    [SerializeField]private SaveLoadManager _saveLoadManager;
+    [SerializeField] private FindLocalPlayer _findLocalPlayer;
+    [SerializeField] private SaveLoadManager _saveLoadManager;
+    private GameObject _player;
     private PlayerDataMonoBehaviour _playerDataMonoBehaviour;
     private TextMeshProUGUI _playerNameText;
-    private void Start()
+
+    public void Initialize()
     {
+        _player = _findLocalPlayer.FindLocalPlayerMethod();
         _playerDataMonoBehaviour = gameObject.GetComponent<PlayerDataMonoBehaviour>();
-        _playerNameText = Singleton.Instance.gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        _playerNameText = _player.GetComponentInChildren<TextMeshProUGUI>();
         _playerNameText.text = _playerDataMonoBehaviour.Name;
     }
+
 }

@@ -1,33 +1,38 @@
 using UnityEngine;
 
-public class CameraMovement : BarrierData
+public class CameraMovement : MonoBehaviour
 {
-    private GameObject _player;
-
-
-
+    [SerializeField] private FindLocalPlayer _findLocalPlayer;
+    [SerializeField] private GameObject _target;
     private Vector3 _targetPosition;
 
-    private void Start()
-    {
-       _player = Singleton.Instance.gameObject;
-    }
+
 
     private void LateUpdate()
     {
+        CheckTarget();
         Move();
     }
 
-    
+    private void CheckTarget()
+    {
+        if (_target == null)
+            _target = _findLocalPlayer.FindLocalPlayerMethod();
+        else 
+            return;
+    }
+
+
     private void Move()
     {
-        float playerX = _player.transform.position.x;
-        float playerY = _player.transform.position.y;
+        float playerX = _target.transform.position.x;
+        float playerY = _target.transform.position.y;
 
-        playerX =  Mathf.Clamp(playerX, LEFT_BARRIER, RIGHT_BARRIER);
-        playerY = Mathf.Clamp(playerY, DOWN_BARRIER, UP_BARRIER);
+        playerX = Mathf.Clamp(playerX, BarrierData.LEFT_BARRIER, BarrierData.RIGHT_BARRIER);
+        playerY = Mathf.Clamp(playerY, BarrierData.LEFT_BARRIER, BarrierData.RIGHT_BARRIER);
+        playerY = Mathf.Clamp(playerY, BarrierData.LEFT_BARRIER, BarrierData.RIGHT_BARRIER);
 
-        _targetPosition = new Vector3(playerX, playerY + 0.8f, _player.transform.position.z - 10);
+        _targetPosition = new Vector3(playerX, playerY + 0.8f, _target.transform.position.z - 10);
         transform.position = _targetPosition;
     }
 

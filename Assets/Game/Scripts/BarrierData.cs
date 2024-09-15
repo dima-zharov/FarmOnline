@@ -1,9 +1,7 @@
-using UnityEngine;
-
-public abstract class BarrierData : MonoBehaviour
+public abstract class BarrierData
 {
-    protected const float UP_BARRIER = 10;
-    protected const float DOWN_BARRIER = -10;
-    protected const float RIGHT_BARRIER = 20;
-    protected const float LEFT_BARRIER = -20;
+    public const float UP_BARRIER = 10;
+    public const float DOWN_BARRIER = -10;
+    public const float RIGHT_BARRIER = 20;
+    public const float LEFT_BARRIER = -20;
 }

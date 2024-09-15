@@ -1,22 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class JoystickMovement : PlayerMovement
+public class JoystickMovement : PlayerMovement, IInitializer
 {
     private Joystick _joystick;
 
-
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    public void Initialize()
     {
         _joystick = FindObjectOfType<FloatingJoystick>();
     }
@@ -35,5 +24,10 @@ public class JoystickMovement : PlayerMovement
             _rigidbody?.MovePosition(_rigidbody.position + offset);
 
         }
+    }
+
+    public void SecondInitialize()
+    {
+        throw new System.NotImplementedException();
     }
 }

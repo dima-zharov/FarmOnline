@@ -1,22 +1,11 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
-public class PlayerAnimationLogic : BaseAnimationLogic
+public class PlayerAnimationLogic : BaseAnimationLogic, IInitializer
 {
     private Joystick _joystick;
 
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    public void Initialize()
     {
         _joystick = FindObjectOfType<FloatingJoystick>();
     }
@@ -35,5 +24,8 @@ public class PlayerAnimationLogic : BaseAnimationLogic
             BoolParameterChanging(true, AnimParametersEnum.isRunning);
     }
 
-
+    public void SecondInitialize()
+    {
+        throw new System.NotImplementedException();
+    }
 }
