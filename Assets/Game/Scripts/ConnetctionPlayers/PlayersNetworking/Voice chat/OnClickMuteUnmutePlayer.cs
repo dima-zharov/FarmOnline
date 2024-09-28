@@ -10,11 +10,6 @@ public class OnClickMuteUnmutePlayer : MonoBehaviour, IInitializer
         _playerAudio = _player.GetComponent<MuteUnmutePlayer>();
     }
 
-    public void SecondInitialize()
-    {
-        throw new System.NotImplementedException();
-    }
-
     public void SetMuteUnmute()
     {
         _playerAudio.SetPlayerMuteUnmute(_isMuting);

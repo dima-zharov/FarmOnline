@@ -6,7 +6,7 @@ public class PlayersSpawner : MonoBehaviour
     [SerializeField] private GameObject _player;
     public void SpawnPlayer()
     {
-        Vector2 spawnPosition = new Vector2(0, 0);
-        PhotonNetwork.InstantiateRoomObject(_player.name, spawnPosition, Quaternion.identity);
+        Debug.Log("<color=yellow> Player has spawned</color>");
+        PhotonNetwork.Instantiate(_player.name, Vector2.zero, Quaternion.identity);
     }
 }

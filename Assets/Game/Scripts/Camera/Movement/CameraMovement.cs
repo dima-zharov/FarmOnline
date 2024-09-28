@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     [SerializeField] private FindLocalPlayer _findLocalPlayer;
-    [SerializeField] private GameObject _target;
+    private GameObject _target;
     private Vector3 _targetPosition;
 
 
@@ -11,7 +11,6 @@ public class CameraMovement : MonoBehaviour
     private void LateUpdate()
     {
         CheckTarget();
-        Move();
     }
 
     private void CheckTarget()
@@ -19,7 +18,7 @@ public class CameraMovement : MonoBehaviour
         if (_target == null)
             _target = _findLocalPlayer.FindLocalPlayerMethod();
         else 
-            return;
+            Move();
     }
 
 

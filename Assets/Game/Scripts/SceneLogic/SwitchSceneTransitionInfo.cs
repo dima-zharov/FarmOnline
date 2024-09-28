@@ -22,7 +22,7 @@ public class SwitchSceneTransitionInfo : MonoBehaviour
 
     public void ShowTransitionException(string message)
     {
-        if(!_isMessageActive)
+        if (!_isMessageActive)
             StartCoroutine(ShowExeptionCoroutine(message));
     }
 

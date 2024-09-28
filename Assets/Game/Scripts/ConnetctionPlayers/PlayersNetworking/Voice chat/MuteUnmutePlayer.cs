@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Android;
 
 public class MuteUnmutePlayer : MonoBehaviour, IInitializer
 {
@@ -6,6 +7,7 @@ public class MuteUnmutePlayer : MonoBehaviour, IInitializer
 
     public void Initialize()
     {
+        Permission.RequestUserPermission(Permission.Microphone);
         _audioSource = GetComponent<AudioSource>();
         _audioSource.mute = true;
     }
