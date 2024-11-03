@@ -25,9 +25,4 @@ public class JoystickMovement : PlayerMovement, IInitializer
 
         }
     }
-
-    public void SecondInitialize()
-    {
-        throw new System.NotImplementedException();
-    }
 }

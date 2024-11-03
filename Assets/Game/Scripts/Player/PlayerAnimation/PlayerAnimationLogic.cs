@@ -23,9 +23,4 @@ public class PlayerAnimationLogic : BaseAnimationLogic, IInitializer
         else
             BoolParameterChanging(true, AnimParametersEnum.isRunning);
     }
-
-    public void SecondInitialize()
-    {
-        throw new System.NotImplementedException();
-    }
 }

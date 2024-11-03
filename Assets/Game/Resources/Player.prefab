@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6212377499440645905}
   - component: {fileID: 540386699668535184}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 6302895051195736778}
   - component: {fileID: 334724339501632323}
   - component: {fileID: 8436767396368148974}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: man
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,10 +237,11 @@ GameObject:
   - component: {fileID: 520444793796953601}
   - component: {fileID: 3721543910964905727}
   - component: {fileID: 7725829908985804802}
-  - component: {fileID: 6727624462336662031}
-  m_Layer: 0
+  - component: {fileID: 5401341189540192427}
+  - component: {fileID: -5388391873482604872}
+  m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -368,7 +369,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 6727624462336662031}
+  - {fileID: -5388391873482604872}
   - {fileID: 8436767396368148974}
   sceneViewId: 0
   InstantiationId: 0
@@ -397,6 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520951b5fb962e24fb91d4f0593a4f98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioSource: {fileID: 0}
 --- !u!114 &3721543910964905727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -505,7 +507,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6727624462336662031
+--- !u!114 &5401341189540192427
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -514,13 +516,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 5302301151891205572}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Script: {fileID: 11500000, guid: dd7fea91fe63f4e1b884ef1e16a975c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
+  playDelayConfig:
+    Low: 200
+    High: 200
+    Max: 1000
+    SpeedUpPerc: 5
+  restartOnDeviceChange: 1
+--- !u!114 &-5388391873482604872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5302301151891205572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efc6b1d64977384eb3405357896c656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PositionModel:
+    SynchronizeEnabled: 1
+    TeleportEnabled: 0
+    TeleportIfDistanceGreaterThan: 3
+    InterpolateOption: 0
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 1
+    ExtrapolateOption: 0
+    ExtrapolateSpeed: 1
+    ExtrapolateIncludingRoundTripTime: 1
+    ExtrapolateNumberOfStoredPositions: 1
+  m_RotationModel:
+    SynchronizeEnabled: 1
+    InterpolateOption: 0
+    InterpolateRotateTowardsSpeed: 180
+    InterpolateLerpSpeed: 1
+  m_ScaleModel:
+    SynchronizeEnabled: 0
+    InterpolateOption: 0
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 0
 --- !u!1 &6501915357427928456
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +570,7 @@ GameObject:
   - component: {fileID: 3933502045768354386}
   - component: {fileID: 3791085276266430504}
   - component: {fileID: 530861241191234783}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -635,7 +672,8 @@ GameObject:
   - component: {fileID: 6167187476143631700}
   - component: {fileID: 1027732331558965233}
   - component: {fileID: 3272586849269880208}
-  m_Layer: 5
+  - component: {fileID: 4618121761397368166}
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -770,3 +808,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e134ec1bcc963d645a9d007bc0198040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4618121761397368166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8619158407818181018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

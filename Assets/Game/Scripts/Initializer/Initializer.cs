@@ -11,7 +11,10 @@ public class Initializer : MonoBehaviour
         FindNeedObjects();
 
         foreach (var @object in _objectsToInitialize)
+        {
             @object.Initialize();
+        }
+        
         
     }
 

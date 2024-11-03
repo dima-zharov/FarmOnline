@@ -13,6 +13,7 @@ public abstract class EntryPattern : MonoBehaviour
     protected string _userPassword;
 
     private const string SUCESSFUL_REQUEST_TEXT = "true";
+    private SetPlayerNickname _setPhotonPlayerNickname = new();
 
     public void EnterField()
     {
@@ -37,9 +38,13 @@ public abstract class EntryPattern : MonoBehaviour
 
         string result = _request.UwrMessage;
 
-        if (result.Equals(SUCESSFUL_REQUEST_TEXT))
+        if (_setPhotonPlayerNickname.SetPhotonPlayerNickname(_userEmail) && result.Equals(SUCESSFUL_REQUEST_TEXT) )
         {
             _entryActions.SucessfulEntryMethod();
+        }
+        else if (_setPhotonPlayerNickname.SetPhotonPlayerNickname(_userEmail).Equals(false))
+        {
+            _entryActions.FailedEntryMethod("This player is already in game!");
         }
         else
         {
